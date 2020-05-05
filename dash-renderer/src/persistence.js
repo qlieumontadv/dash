@@ -265,23 +265,25 @@ const noopTransform = {
 };
 
 const getTransform = (element, propName, propPart) => {
-    console.dir(element.persistenceTransforms)
+    console.log(typeof element.persistenceTransforms)
+    /*     
     console.log(typeof element.persistenceTransforms)
     console.log(typeof element.persistenceTransforms[propName])
-    console.dir(typeof element.persistenceTransforms[propName])
-    console.log(Object.getOwnPropertyNames(element.persistenceTransforms))
-
-    if (Object.getOwnPropertyNames(element.persistenceTransforms).includes(propName)) {
-        if (propPart) {
-            console.log('propPart PT exists')
-            return element.persistenceTransforms[propName][propPart]
+    console.dir(typeof element.persistenceTransforms[propName]) 
+    console.log(Object.getOwnPropertyNames(element.persistenceTransforms))*/
+    if (typeof element.persistenceTransforms !== 'undefined') {
+        if (Object.getOwnPropertyNames(element.persistenceTransforms).includes(propName)) {
+            if (propPart) {
+                console.log('propPart PT exists')
+                return element.persistenceTransforms[propName][propPart]
+            } {
+                console.log('no propPart')
+                return element.persistenceTransforms[propName]}
         } {
-            console.log('no propPart')
-            return element.persistenceTransforms[propName]}
-    } {
-        console.log('no includes')
-        return noopTransform
-    };
+            console.log('no includes')
+            return noopTransform
+        };
+    } return noopTransform
 } 
 
 /* const getTransform = (element, propName, propPart) => {
