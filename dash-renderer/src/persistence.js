@@ -266,11 +266,6 @@ const noopTransform = {
 
 const getTransform = (element, propName, propPart) => {
     console.log(typeof element.persistenceTransforms)
-    /*     
-    console.log(typeof element.persistenceTransforms)
-    console.log(typeof element.persistenceTransforms[propName])
-    console.dir(typeof element.persistenceTransforms[propName]) 
-    console.log(Object.getOwnPropertyNames(element.persistenceTransforms))*/
     if (typeof element.persistenceTransforms !== 'undefined') {
         if (Object.getOwnPropertyNames(element.persistenceTransforms).includes(propName)) {
             if (propPart) {
@@ -285,40 +280,6 @@ const getTransform = (element, propName, propPart) => {
         };
     } return noopTransform
 } 
-
-/* const getTransform = (element, propName, propPart) => {
-    console.dir(element.persistenceTransforms)
-    console.log(typeof element.persistenceTransforms)
-    console.log(typeof element.persistenceTransforms[propName])
-    if (typeof element.persistenceTransforms !== 'undefined') {
-        console.log('persistence transforms exists')
-        if (typeof element.persistenceTransforms[propName][propPart] !== 'undefined') {
-            console.log('propPart persistence')
-            return element.persistenceTransforms[propName][propPart]
-        } if (typeof element.persistenceTransforms[propName] !== 'undefined') {
-            console.log('propName persistence')
-            return element.persistenceTransforms[propName]
-        } return noopTransform
-    } return noopTransform
-} */
-/* 
-const getTransform = (element, propName, propPart) => {
-    console.dir(typeof element.persistenceTransforms[propName])
-    console.dir(typeof element.persistenceTransforms[propName][propPart])
-    console.dir(element.persistenceTransforms[propName])
-    console.dir(element.persistenceTransforms[propName][propPart])
-    if (propPart) {
-        return element.persistenceTransforms[propName][propPart]
-    }
-    if (typeof element.persistenceTransforms !== 'undefined') {
-        console.log('hello')
-        return element.persistenceTransforms[propName]
-    } return noopTransform
-    } */
-/* const getTransform = (element, propName, propPart) =>
-    propPart
-        ? element.persistenceTransforms[propName][propPart]
-        : noopTransform; */
 
 const getValsKey = (id, persistedProp, persistence) =>
     `${id}.${persistedProp}.${JSON.stringify(persistence)}`;
